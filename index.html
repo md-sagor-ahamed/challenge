@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom project</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+        <div class="container">
+            <div class="fromWrapper">
+                <div class="heading">
+                    <h1>Your task manager application</h1>
+                </div>
+                <form class="form">
+                    <div class="title everyItem">
+                        <label for="taskTitle">Title:</label>
+                        <input type="text" class="taskTitle" placeholder="Enter your task name">
+                        <input type="hidden" class="hidden">
+                    </div>
+                    <div class="description everyItem">
+                        <label for="taskDescription">description:</label>
+                        <textarea cols="20" rows="4" type="text" class="taskDescription" placeholder="Enter your task description"></textarea>
+                    </div>
+                    <div class="person everyItem">
+                        <label for="worker">assigned to:</label>
+                        <input type="text" class="worker" placeholder="Enter your worker name">
+                    </div>
+                    <div class="startEndDate everyItem">
+                        <label class="date" for="">date:</label>
+                        <div class="end everyItem">
+                            <label for="endDate">end:</label>
+                            <input type="date" placeholder="mm/dd/yyyy" class="endDate">
+                        </div>
+                    </div>
+                    <div class="quality everyItem">
+                        <label for="productQuality">Priority:</label>
+                        <input type="radio" class="low priority" id="low" value="low" name="quality"><label for="low">Low</label>
+                        <input type="radio" class="medium priority" id="medium" value="medium" name="quality"><label for="medium">medium</label>
+                        <input type="radio" class="high priority" id="high" value="high" name="quality"><label for="high">high</label>
+                    </div>
+                    <div class="status everyItem">
+                        <label for="">status:</label>
+                        <input type="radio" class="new status" value="new" id="new" name="status" ><label for="new">new</label>
+                        <input type="radio" class="inProgress status" id="inProgress" value="in progress" name="status" ><label for="inProgress">in progress</label>
+                        <input type="radio" class="completed status" id="completed" value="completed" name="status" ><label for="completed">completed</label>
+                    </div>
+                    <div class="range everyItem">
+                        <label for="completedPercent">completed in percentage:</label>
+                        <input type="range" value="0" min="0" max="100" id="number" class="number">
+                        <input type="number" id="number" value="0" max="100" min="0" for="number" class="numberBox">
+                    </div>
+                    <div class="submitOrUpdateBtn">
+                        <button class="submit">submit task</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div class="containerWrapper">
+                <div class="fromViewer">
+                    <div class="progress d-flex">
+                        <p class="total">Total:<span class="totalItem">0</span></p>
+                        <p class="new">New:<span class="newItem">0</span></p>
+                        <p class="inProgress">in progress:<span class="progressItem">0</span></p>
+                        <p class="completed">Completed:<span class="completedItem">0</span></p>
+                        <p class="rejected">rejected:<span class="rejectedItem">0</span></p>
+                    </div>
+                    <div class="progressItem d-flex">
+                        <p>ID</p>
+                        <p>Title</p>
+                        <p>Priority</p>
+                        <p>Status</p>
+                        <p>Due Date</p>
+                        <p>Assigned To</p>
+                        <p>Completed%</p>
+                        <p>Action</p>
+                    </div>
+                    <div class="progressItemStatus">
+                        <ol class="list">
+                        </ol>
+                    </div>
+                </div>
+                <div class="resetBtn">
+                    <button title="Reset All The Value"  class="reset">Reset</button>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="container">
+                <div class="name">
+                    <h3 class="developerName">Developed by <span>MD.SAGOR AHAMED</span></h3>
+                </div>
+            </div>
+        </footer>
+
+
+<script src="main.js"></script>
+
+</body>
+</html>
