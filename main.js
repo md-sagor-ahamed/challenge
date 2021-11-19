@@ -158,14 +158,17 @@ const UI = {
       const target = e.target;
       let list = +showTotalItem.textContent;
       if(target.className === "far fa-trash-alt taskDelete"){
-        const item = target.parentElement.parentElement.parentElement.parentElement
-        item.remove();
-        list--;
-        showTotalItem.textContent = list;
-        this.addToCompletedTask();
-        const del = +target.parentElement.parentElement.parentElement.id
-        this.deleteItemFromLocalStorage(del);
-        location.reload()
+        const deleteConfirm = confirm("Are you sure you want to delete this?")
+        if(deleteConfirm === true){
+          const item = target.parentElement.parentElement.parentElement.parentElement
+          item.remove();
+          list--;
+          showTotalItem.textContent = list;
+          this.addToCompletedTask();
+          const del = +target.parentElement.parentElement.parentElement.id
+          this.deleteItemFromLocalStorage(del);
+          location.reload()
+        }
       }
     })
   },
@@ -176,27 +179,30 @@ const UI = {
       const target = e.target;
       const id = parseInt(target.id);
       if(target.className === "fas fa-power-off taskReject"){
-        const item = target.parentElement.parentElement.children;
-        for(let i = 0; i < item.length; i++){
-            item[i].textContent = "rejected"
+        const rejectConfirm = confirm("Are you sure you want to reject this?")
+        if(rejectConfirm === true){
+          const item = target.parentElement.parentElement.children;
+          for(let i = 0; i < item.length; i++){
+              item[i].textContent = "rejected"
+          }
+          const data = {
+            title: "rejected",
+            description: "rejected",
+            worker: "rejected",
+            date: "rejected",
+            status: "rejected",
+            priority: "rejected",
+            range: "0",
+            id: id
+          }
+          this.showTotalLength()
+          this.editLocalStorage(data, id)
+          this.showNewAddedItem();
+          itemList.innerHTML = "";
+          this.fromSubmition(getData)
+          location.reload()
         }
-        const data = {
-          title: "rejected",
-          description: "rejected",
-          worker: "rejected",
-          date: "rejected",
-          status: "rejected",
-          priority: "rejected",
-          range: "0",
-          id: id
         }
-        this.showTotalLength()
-        this.editLocalStorage(data, id)
-        this.showNewAddedItem();
-        itemList.innerHTML = "";
-        this.fromSubmition(getData)
-        location.reload()
-      }
     })
   },
   addToCompletedTask(){
